@@ -8,14 +8,29 @@ namespace _1DV402.S2.L03C
 {
     static class Extensions
     {
-        static string AsText(this ShapeType shapeType)
+        public static string AsText(this ShapeType shapeType)
         {
-            return "";
+            switch (shapeType)
+            {
+                case ShapeType.Circle: return "Cirkel";
+                case ShapeType.Cuboid: return "Rätblock";
+                case ShapeType.Cylinder: return "Cylinder";
+                case ShapeType.Ellipse: return "Ellips";
+                case ShapeType.Rectangle: return "Rektangel";
+                case ShapeType.Sphere: return "Sfär";
+                default: throw new NotImplementedException("Textsträng för ShapeType:n saknas i metoden AsText.");
+            }
         }
 
-        static string CenterAlignString(this string s, string other)
+        public static string CenterAlignString(this string s, string other)
         {
-            return "";
+            int sHalf = s.Length / 2;
+            int otherHalf = other.Length / 2;
+
+            int sStartLength = sHalf - otherHalf;
+            int sEndStartPos = sHalf - otherHalf + other.Length;
+
+            return String.Format("{0}{1}{2}", s.Substring(0, sStartLength), other, s.Substring(sEndStartPos));
         }
     }
 }

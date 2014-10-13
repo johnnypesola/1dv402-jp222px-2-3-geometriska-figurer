@@ -29,7 +29,7 @@ namespace _1DV402.S2.L03C
         }
 
         // Constructors
-        public Ellipse(double diameter) : base(ShapeType.Ellipse, diameter, diameter)
+        public Ellipse(double diameter) : base(ShapeType.Circle, diameter, diameter)
         {
             
         }

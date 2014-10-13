@@ -8,9 +8,9 @@ namespace _1DV402.S2.L03C
 {
     enum ShapeType
     {
-        Rectangle,
-        Circle,
         Ellipse,
+        Circle,
+        Rectangle,
         Cuboid,
         Cylinder,
         Sphere
