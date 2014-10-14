@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1DV402.S2.L03C
 {
-    abstract class Shape3D : Shape
+    abstract class Shape3D : Shape, IComparable
     {
         protected Shape2D _baseShape;
         private double _height;
@@ -47,7 +47,7 @@ namespace _1DV402.S2.L03C
         }
 
         // Methods
-        int CopareTo(object obj)
+        public int CompareTo(object obj)
         {
             /*
              * Metoden ska jämföra två objekt med avseende på deras volymer. 
@@ -110,11 +110,12 @@ namespace _1DV402.S2.L03C
 
             if (format == null || format == "" || format == "G")
             {
-                return String.Format("Längd{0,-10}{1,20}\nBredd{0,-10}{2,20}\nHöjd{0,-10}{2,20}\nMantelarea{0,-10}{3,20}\nBegränsningarea{0,-10}{4,20}\nVolym{0,-10}{5,20}", ":", _baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
+                return String.Format("{1,-17}{0,-10}{2,10:0.0}\n{3,-17}{0,-10}{4,10:0.0}\n{5,-17}{0,-10}{6,10:0.0}\n{7,-17}{0,-10}{8,10:0.0}\n{9,-17}{0,-10}{10,10:0.0}\n{11,-17}{0,-10}{12,10:0.0}", 
+                                        ":", "Längd", _baseShape.Length, "Bredd", _baseShape.Width, "Höjd", Height, "Mantelarea", MantelArea, "Begränsningarea", TotalSurfaceArea, "Volym", Volume);
             }
             else if (format == "R")
             {
-                return String.Format("{0,-10}{1,0}{2,10}{3,20}{4,30}{5,40}{6,50}", this.ShapeType, _baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
+                return String.Format("{0,-10}{1,7:0.0}{2,7:0.0}{3,7:0.0}{4,14:0.0}{5,14:0.0}{6,14:0.0}", this.ShapeType, _baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
             }
             else
             {

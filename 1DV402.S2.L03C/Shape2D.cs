@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1DV402.S2.L03C
 {
-    abstract class Shape2D : Shape
+    abstract class Shape2D : Shape, IComparable
     {
         private double _length;
         private double _width;
@@ -73,7 +73,7 @@ namespace _1DV402.S2.L03C
         }
 
         // Methods
-        int CopareTo(object obj)
+        public int CompareTo(object obj)
         {
             /*
              * Metoden ska jämföra två objekt med avseende på deras areor. 
@@ -142,11 +142,12 @@ namespace _1DV402.S2.L03C
 
             if(format == null || format == "" || format == "G")
             {
-                return String.Format("Längd{0,-10}{1,20}\nBredd{0,-10}{2,20}\nOmkrets{0,-10}{2,20}\nArea{0,-10}{3,20}", ":", Length, Width, Perimeter, Area);
+                return String.Format("{1,-17}{0,-10}{2,10:0.0}\n{3,-17}{0,-10}{4,10:0.0}\n{5,-17}{0,-10}{6,10:0.0}\n{7,-17}{0,-10}{8,10:0.0}",
+                                        ":", "Längd", Length, "Bredd", Width, "Omkrets", Perimeter, "Area", Area);
             }
             else if(format == "R")
             {
-                return String.Format("{0,-10}{1,0}{2,10}{3,20}{4,30}", this.ShapeType, Length, Width, Perimeter, Area);
+                return String.Format("{0,-10}{1,7:0.0}{2,7:0.0}{3,12:0.0}{4,12:0.0}", this.ShapeType, Length, Width, Perimeter, Area);
             }
             else
             {
