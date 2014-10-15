@@ -25,13 +25,27 @@ namespace _1DV402.S2.L03C
                 {
                     switch (Console.ReadLine())
                     {
-                        case "0": exitProgram = true; break;
-                        case "1": ViewShapeDetail(CreateShape(ShapeType.Rectangle)); break;
-                        case "2": ViewShapeDetail(CreateShape(ShapeType.Circle)); break;
-                        case "3": ViewShapeDetail(CreateShape(ShapeType.Ellipse)); break;
-                        case "4": ViewShapeDetail(CreateShape(ShapeType.Cuboid)); break;
-                        case "5": ViewShapeDetail(CreateShape(ShapeType.Cylinder)); break;
-                        case "6": ViewShapeDetail(CreateShape(ShapeType.Sphere)); break;
+                        case "0": 
+                            exitProgram = true; 
+                            break;
+                        case "1":
+                            ViewShapeDetail(CreateShape(ShapeType.Rectangle));
+                            break;
+                        case "2":
+                            ViewShapeDetail(CreateShape(ShapeType.Circle));
+                            break;
+                        case "3":
+                            ViewShapeDetail(CreateShape(ShapeType.Ellipse));
+                            break;
+                        case "4":
+                            ViewShapeDetail(CreateShape(ShapeType.Cuboid));
+                            break;
+                        case "5":
+                            ViewShapeDetail(CreateShape(ShapeType.Cylinder));
+                            break;
+                        case "6":
+                            ViewShapeDetail(CreateShape(ShapeType.Sphere));
+                            break;
                         case "7":
                             random2DShapes = Randomize2DShapes();
                             Array.Sort(random2DShapes); 
@@ -44,7 +58,7 @@ namespace _1DV402.S2.L03C
                             break;
                         default: throw new FormatException("FEL! Ange ett nummer mellan 0 och 8");
                     }
-                } 
+                }
                 catch(Exception e)
                 {
                     ViewMenuErrorMessage(e.Message);
@@ -171,7 +185,7 @@ namespace _1DV402.S2.L03C
                     Console.Write(prompt);
 
                     // Get and split input
-                    inputStrings = Console.ReadLine().Split(new char[] {' ' ,','});
+                    inputStrings = Console.ReadLine().Split(new char[] {' '});
 
                     // Check count of given input
                     if(inputStrings.Length != numberOfValues)
